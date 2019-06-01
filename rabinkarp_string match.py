@@ -32,12 +32,18 @@ for i in range(text_len-pattern_len+1):
    # find next hash from the previous hash
    # H("bcd") = H("abc") - H("a") + H("d")
    # https://brilliant.org/wiki/rabin-karp-algorithm/
-    temp =  ord(text[i]) * (26 ** (pattern_len -1))
-    text_hash = prev_text_hash - temp
-    text_hash = text_hash * 26
-    text_hash += ord(text[i+pattern_len])
+    if i < text_len - pattern_len:
+        temp =  ord(text[i]) * (26 ** (pattern_len -1))
+        text_hash = prev_text_hash - temp
+        text_hash = text_hash * 26
+        text_hash += ord(text[i+pattern_len])
+        prev_text_hash = text_hash
+
+    else:
+        print("Match not found")
+        break
     # print("tem",temp)
     
     
-    prev_text_hash = text_hash
+    
  
