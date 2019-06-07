@@ -13,14 +13,12 @@ def counting_sort(arr):
     for i in arr: 
         count[i] = count[i] + 1
     
-    print(arr)
-    print(count)
+
     # cumulatively add the counts
     for i in range(1,len(count)):
         count[i] = count[i] + count[i-1]
         
 
-    print("cumulative: ",count)
     # shift count to the right 
     # for i in range(len(count)-1,-1,-1):
     #     count[i] = count[i-1]
